@@ -1,0 +1,3 @@
+package com.worldvisionsoft.kotlinbasicprojectsetup
+
+class KotlinBasicApp
