@@ -1,9 +1,9 @@
-package com.worldvisionsoft.kotlinbasicprojectsetup.data.network.model
+package com.worldvisionsoft.kotlinbasicprojectsetup.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class BaseResponse<T: Any>(
+data class BaseResponse<T>(
     @Expose
     @SerializedName("StatusCode")
     var statusCode: String? = null,
