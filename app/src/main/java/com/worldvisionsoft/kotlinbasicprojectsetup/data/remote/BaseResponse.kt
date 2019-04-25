@@ -1,4 +1,4 @@
-package com.worldvisionsoft.kotlinbasicprojectsetup.data.model
+package com.worldvisionsoft.kotlinbasicprojectsetup.data.remote
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

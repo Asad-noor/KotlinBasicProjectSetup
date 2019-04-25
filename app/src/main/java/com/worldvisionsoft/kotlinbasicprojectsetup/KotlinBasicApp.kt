@@ -1,3 +1,10 @@
 package com.worldvisionsoft.kotlinbasicprojectsetup
 
-class KotlinBasicApp
+import android.app.Application
+
+class KotlinBasicApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+    }
+}
