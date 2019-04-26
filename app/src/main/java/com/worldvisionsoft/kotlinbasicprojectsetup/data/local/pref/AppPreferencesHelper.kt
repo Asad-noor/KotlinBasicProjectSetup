@@ -2,12 +2,14 @@ package com.worldvisionsoft.kotlinbasicprojectsetup.data.local.pref
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import com.worldvisionsoft.kotlinbasicprojectsetup.di.PreferenceInfo
 
 import javax.inject.Inject
 
 
-class AppPreferencesHelper constructor (@Inject val context: Context, @PreferenceInfo prefFileName: String) : PreferencesHelper {
+class AppPreferencesHelper @Inject constructor(context: Context,
+                                              @PreferenceInfo private val prefFileName: String) : PreferencesHelper {
 
     companion object {
 
@@ -26,7 +28,7 @@ class AppPreferencesHelper constructor (@Inject val context: Context, @Preferenc
 
     private val mPrefs: SharedPreferences = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
 
-    override fun getAccessToken(): String {
-        return mPrefs.getString(PREF_KEY_ACCESS_TOKEN, null)
-    }
+    override fun getAccessToken(): String = mPrefs.getString(PREF_KEY_ACCESS_TOKEN, "")
+
+    override fun setAccessToken(accessToken: String?) = mPrefs.edit { putString(PREF_KEY_ACCESS_TOKEN, accessToken) }
 }

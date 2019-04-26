@@ -1,7 +1,7 @@
 package com.worldvisionsoft.kotlinbasicprojectsetup.di.module
 
 import android.app.Application
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -17,6 +17,7 @@ import com.worldvisionsoft.kotlinbasicprojectsetup.data.remote.ApiHelper
 import com.worldvisionsoft.kotlinbasicprojectsetup.data.remote.ApiService
 import com.worldvisionsoft.kotlinbasicprojectsetup.data.remote.AppApiHelper
 import com.worldvisionsoft.kotlinbasicprojectsetup.di.DatabaseInfo
+import com.worldvisionsoft.kotlinbasicprojectsetup.di.PreferenceInfo
 import com.worldvisionsoft.kotlinbasicprojectsetup.utils.AppConstants
 import dagger.Module
 import dagger.Provides
@@ -38,9 +39,15 @@ class AppModule {
     internal fun provideAppDataManager(appDataManager: AppDataManager): DataManager = appDataManager
 
 
+//    @Provides
+//    @Singleton
+//    internal fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper = appApiHelper
+
+
+    //pref
     @Provides
-    @Singleton
-    internal fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper = appApiHelper
+    @PreferenceInfo
+    internal fun providePreferenceName(): String = AppConstants.PREF_NAME
 
     @Provides
     @Singleton
@@ -68,7 +75,9 @@ class AppModule {
     //network part
     @Provides
     @Singleton
-    internal fun provideGson(): Gson = GsonBuilder().serializeNulls().create()
+    internal fun provideGson(): Gson {
+        return GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
+    }
 
     @Provides
     @Singleton

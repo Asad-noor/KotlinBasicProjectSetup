@@ -1,6 +1,6 @@
 package com.worldvisionsoft.kotlinbasicprojectsetup.data.local.db.user
 
-import android.arch.persistence.room.*
+import androidx.room.*
 
 
 @Dao

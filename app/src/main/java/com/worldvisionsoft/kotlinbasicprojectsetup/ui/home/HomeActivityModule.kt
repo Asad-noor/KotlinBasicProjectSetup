@@ -2,8 +2,13 @@ package com.worldvisionsoft.kotlinbasicprojectsetup.ui.home
 
 import com.worldvisionsoft.kotlinbasicprojectsetup.data.DataManager
 import dagger.Module
+import dagger.Provides
 
 @Module
 class HomeActivityModule {
-    internal fun provideHomeViewModel(dataManager: DataManager): HomeV
+
+    @Provides
+    internal fun provideLoginViewModel(dataManager: DataManager): HomeViewModel {
+        return HomeViewModel(dataManager)
+    }
 }

@@ -1,21 +1,18 @@
 package com.worldvisionsoft.kotlinbasicprojectsetup.ui.base
 
-import android.annotation.TargetApi
-import android.app.ProgressDialog
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
-import android.databinding.ViewDataBinding
-import android.os.Build
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.LayoutRes
+import androidx.annotation.LayoutRes
 import dagger.android.AndroidInjection
 
-abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppCompatActivity() {
+abstract class BaseActivity<T : ViewDataBinding,V : BaseViewModel<*>> : AppCompatActivity() {
 
     // TODO
     // this can probably depend on isLoading variable of BaseViewModel,
     // since its going to be common for all the activities
-    private var mProgressDialog: ProgressDialog? = null
+    //private var mProgressDialog: ProgressDialog? = null
     private var mViewDataBinding: T? = null
     private var mViewModel: V? = null
 
@@ -50,9 +47,9 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
     }
 
     fun hideLoading() {
-        if (mProgressDialog != null && mProgressDialog!!.isShowing) {
-            mProgressDialog!!.cancel()
-        }
+//        if (mProgressDialog != null && mProgressDialog!!.isShowing) {
+//            mProgressDialog!!.cancel()
+//        }
     }
 
 //    fun isNetworkConnected(): Boolean {
@@ -68,12 +65,12 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
         AndroidInjection.inject(this)
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
-    fun requestPermissionsSafely(permissions: Array<String>, requestCode: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(permissions, requestCode)
-        }
-    }
+//    @TargetApi(Build.VERSION_CODES.M)
+//    fun requestPermissionsSafely(permissions: Array<String>, requestCode: Int) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            requestPermissions(permissions, requestCode)
+//        }
+//    }
 
     fun showLoading() {
         //hideLoading()

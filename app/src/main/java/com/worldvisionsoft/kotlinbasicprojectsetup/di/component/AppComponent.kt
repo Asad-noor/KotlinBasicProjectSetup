@@ -1,12 +1,26 @@
 package com.worldvisionsoft.kotlinbasicprojectsetup.di.component
 
-import com.worldvisionsoft.kotlinbasicprojectsetup.ui.home.HomeActivity
-import dagger.Module
-import dagger.android.ContributesAndroidInjector
+import android.app.Application
+import com.worldvisionsoft.kotlinbasicprojectsetup.KotlinBasicApp
+import com.worldvisionsoft.kotlinbasicprojectsetup.di.builder.ActivityBuilder
+import com.worldvisionsoft.kotlinbasicprojectsetup.di.module.AppModule
+import dagger.BindsInstance
+import dagger.Component
+import dagger.android.AndroidInjectionModule
+import javax.inject.Singleton
 
-@Module
-abstract class ActivityBuilder {
+@Singleton
+@Component(modules = [(AndroidInjectionModule::class), (AppModule::class), (ActivityBuilder::class)])
+interface AppComponent {
 
-    @ContributesAndroidInjector(modules = [LoginActivityModule::class])
-    internal abstract fun bindLoginActivity(): HomeActivity
+    @Component.Builder
+    interface Builder {
+
+        @BindsInstance
+        fun application(application: Application): Builder
+
+        fun build(): AppComponent
+    }
+
+    fun inject(app: KotlinBasicApp)
 }
