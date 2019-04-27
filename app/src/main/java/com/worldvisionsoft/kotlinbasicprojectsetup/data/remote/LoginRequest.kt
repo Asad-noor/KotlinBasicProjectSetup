@@ -3,16 +3,16 @@ package com.worldvisionsoft.kotlinbasicprojectsetup.data.remote
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class BaseResponse {
+data class LoginRequest (
     @Expose
-    @SerializedName("code")
-    var statusCode: Int = 0
+    @SerializedName("User")
+    var User: String,
 
     @Expose
-    @SerializedName("data")
-    var data: Any? = null
+    @SerializedName("Password")
+    var Password: String,
 
     @Expose
-    @SerializedName("message")
-    var message: String? = null
-}
+    @SerializedName("Value")
+    var Value: String
+)

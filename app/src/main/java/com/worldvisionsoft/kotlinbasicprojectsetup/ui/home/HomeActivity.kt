@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import com.worldvisionsoft.kotlinbasicprojectsetup.BR
 import com.worldvisionsoft.kotlinbasicprojectsetup.R
+import com.worldvisionsoft.kotlinbasicprojectsetup.data.remote.LoginRequest
 import com.worldvisionsoft.kotlinbasicprojectsetup.ui.base.BaseActivity
 import javax.inject.Inject
 
@@ -27,7 +28,9 @@ class HomeActivity : BaseActivity<ViewDataBinding, HomeViewModel>(), HomeNavigat
     }
 
     override fun home() {
-        mHomeViewModel.performHome()
+        val loginRequest = LoginRequest("123448812", "asad_use11", "pushtoken1232434")
+
+        mHomeViewModel.performHome(loginRequest)
     }
 
     override fun handleError(throwable: Throwable) {

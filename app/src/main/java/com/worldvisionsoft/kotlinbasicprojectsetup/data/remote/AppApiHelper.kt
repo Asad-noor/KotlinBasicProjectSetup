@@ -10,24 +10,7 @@ import javax.inject.Singleton
 @Singleton
 class AppApiHelper @Inject constructor(val apiService: ApiService) : ApiHelper {
 
-    override fun login(loginBody: String): Call<BaseResponse> {
-
-        Log.d("tttt", "AppApiHelper" +loginBody);
-
-
-        val call = apiService.performServerLogin(loginBody)
-
-        call.enqueue(object : Callback<BaseResponse> {
-
-            override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
-
-            }
-
-            override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
-
-            }
-        })
-
-        return call
+    override fun login(header: String, loginBody: LoginRequest): Call<BaseResponse> {
+        return apiService.performServerLogin(header, loginBody)
     }
 }
