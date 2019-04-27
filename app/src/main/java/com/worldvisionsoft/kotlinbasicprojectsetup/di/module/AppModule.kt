@@ -5,6 +5,7 @@ import androidx.room.Room
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.worldvisionsoft.kotlinbasicprojectsetup.BuildConfig
 import com.worldvisionsoft.kotlinbasicprojectsetup.data.AppDataManager
 import com.worldvisionsoft.kotlinbasicprojectsetup.data.DataManager
 import com.worldvisionsoft.kotlinbasicprojectsetup.data.local.db.AppDatabase
@@ -39,9 +40,9 @@ class AppModule {
     internal fun provideAppDataManager(appDataManager: AppDataManager): DataManager = appDataManager
 
 
-//    @Provides
-//    @Singleton
-//    internal fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper = appApiHelper
+    @Provides
+    @Singleton
+    internal fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper = appApiHelper
 
 
     //pref
@@ -90,7 +91,7 @@ class AppModule {
     @Singleton
     internal fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(provideGson()))
-            .baseUrl(ApiEndPoint.ENDPOINT_SERVER_LOGIN)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .build()
 

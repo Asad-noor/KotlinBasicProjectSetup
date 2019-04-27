@@ -6,6 +6,6 @@ import com.worldvisionsoft.kotlinbasicprojectsetup.BuildConfig
 
 object ApiEndPoint {
 
-    val ENDPOINT_SERVER_LOGIN = BuildConfig.BASE_URL + "/account/login"
+    const val ENDPOINT_SERVER_LOGIN = "/account/login"
 
 }

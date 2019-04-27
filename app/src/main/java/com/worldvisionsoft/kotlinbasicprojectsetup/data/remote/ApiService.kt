@@ -6,8 +6,8 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @POST("user/login")
-    fun performServerLogin(@Query("LoginRequest") action: String): Call<BaseResponse<Any>>
+    @POST(ApiEndPoint.ENDPOINT_SERVER_LOGIN)
+    fun performServerLogin(@Query("LoginRequest") action: String): Call<BaseResponse>
 
 //    @Headers("Content-Type: application/json")
 //    @POST("account/login")
