@@ -61,7 +61,7 @@ abstract class BaseActivity<T : ViewDataBinding,V : BaseViewModel<*>> : AppCompa
         //finish();
     }
 
-    fun performDependencyInjection() {
+    private fun performDependencyInjection() {
         AndroidInjection.inject(this)
     }
 

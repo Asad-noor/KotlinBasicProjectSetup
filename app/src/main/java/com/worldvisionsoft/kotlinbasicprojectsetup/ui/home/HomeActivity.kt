@@ -24,12 +24,14 @@ class HomeActivity : BaseActivity<ViewDataBinding, HomeViewModel>(), HomeNavigat
     }
 
     override fun getViewModel(): HomeViewModel {
+        //This viewModel object is made by the BaseActivity class where we are sending this same object then override.
+        //Here we can also use ViewModelFactory class to use the observer pattern.
+        //As we don't need to observe any data so we are only using viewModel class for databinding
         return mHomeViewModel
     }
 
     override fun home() {
         val loginRequest = LoginRequest("123448812", "asad_use11", "pushtoken1232434")
-
         mHomeViewModel.performHome(loginRequest)
     }
 

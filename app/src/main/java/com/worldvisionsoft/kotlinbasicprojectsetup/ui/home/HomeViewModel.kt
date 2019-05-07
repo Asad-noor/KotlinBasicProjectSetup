@@ -22,6 +22,7 @@ class HomeViewModel constructor(dataManager: DataManager, gson: Gson) : BaseView
                 val baseResponse: BaseResponse
                 baseResponse = getGson().fromJson(getGson().toJson(response.body()), BaseResponse::class.java)
                 Log.d("tttt", "message is >"+baseResponse.message)
+                getNavigator()?.openMainActivity()
             }
 
             override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
