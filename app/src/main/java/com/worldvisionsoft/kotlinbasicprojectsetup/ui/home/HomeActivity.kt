@@ -1,11 +1,13 @@
 package com.worldvisionsoft.kotlinbasicprojectsetup.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import com.worldvisionsoft.kotlinbasicprojectsetup.BR
 import com.worldvisionsoft.kotlinbasicprojectsetup.R
 import com.worldvisionsoft.kotlinbasicprojectsetup.data.remote.LoginRequest
 import com.worldvisionsoft.kotlinbasicprojectsetup.ui.base.BaseActivity
+import com.worldvisionsoft.kotlinbasicprojectsetup.ui.pager.PagerHolderActivity
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity<ViewDataBinding, HomeViewModel>(), HomeNavigator {
@@ -31,8 +33,9 @@ class HomeActivity : BaseActivity<ViewDataBinding, HomeViewModel>(), HomeNavigat
     }
 
     override fun home() {
-        val loginRequest = LoginRequest("123448812", "asad_use11", "pushtoken1232434")
-        mHomeViewModel.performHome(loginRequest)
+//        val loginRequest = LoginRequest("123448812", "asad_use11", "pushtoken1232434")
+//        mHomeViewModel.performHome(loginRequest)
+        startActivity(Intent(this, PagerHolderActivity::class.java))
     }
 
     override fun handleError(throwable: Throwable) {

@@ -23,6 +23,6 @@
         <Button android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:id="@+id/btnLogin"
                 android:onClick="@{() -> viewModel.onServerLoginClick()}"
-                android:text="Home" />
+                android:text="Home"/>
     </LinearLayout>
 </layout>
