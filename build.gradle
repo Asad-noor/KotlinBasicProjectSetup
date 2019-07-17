@@ -29,4 +29,5 @@ ext {
     dagger2Version = '2.11'
     retrofit2Version = '2.5.0'
     gsonVersion = '2.8.0'
+    mockitoVersion = '2.15.0'
 }

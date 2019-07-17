@@ -18,6 +18,10 @@ class AppDataManager @Inject constructor(val context: Context,val apiHelper: Api
     dbHelper: DbHelper,val preferencesHelper: PreferencesHelper,val gson: Gson
 ) : DataManager {
 
+    override fun getGsonNow(): Gson {
+        return gson
+    }
+
     override fun login(header: String, loginBody: LoginRequest): Call<BaseResponse> {
 
         //May be you have some logic dependency on preference or database values, so this is the place

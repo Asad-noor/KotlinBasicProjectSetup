@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel constructor(dataManager: DataManager, gson: Gson) : BaseViewModel<HomeNavigator>(dataManager, gson) {
+class HomeViewModel constructor(dataManager: DataManager) : BaseViewModel<HomeNavigator>(dataManager) {
 
     // 2. Then this method is called from the view class
     fun performHome(loginRequest: LoginRequest) {
@@ -20,8 +20,8 @@ class HomeViewModel constructor(dataManager: DataManager, gson: Gson) : BaseView
                 Log.d("tttt", "body >>>>>" +response.body().toString())
 
                 val baseResponse: BaseResponse
-                baseResponse = getGson().fromJson(getGson().toJson(response.body()), BaseResponse::class.java)
-                Log.d("tttt", "message is >"+baseResponse.message)
+                //baseResponse = getDataManager().getGsonNow().fromJson(getGson().toJson(response.body()), BaseResponse::class.java)
+                //Log.d("tttt", "message is >"+baseResponse.message)
                 getNavigator()?.openMainActivity()
             }
 
