@@ -1,5 +1,5 @@
 # KotlinBasicProjectSetup
-MVVM architecture based kotlin project where dagger2, rxjava, and android architecture components has been used. (mindorks Java MVVM conversion)
+MVVM architecture-based Kotlin project where Dagger2, RxJava, and Android Architecture Components have been used. (mindorks Java MVVM conversion)
 
 ![alt text](https://raw.githubusercontent.com/asad-noor/KotlinBasicProjectSetup/master/mvvm-model-image.png)
 
